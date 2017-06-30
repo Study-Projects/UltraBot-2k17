@@ -1,1 +1,0 @@
-from vk_bot.server import app
