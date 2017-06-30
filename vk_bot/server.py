@@ -4,14 +4,14 @@ import os
 app = Flask(__name__)
 
 
-@app.route('/')
-def webhook():
-    return "Hello world"
-
 @app.route('/', methods=['POST'])
 def vk_confirmation():
-    pass
+    return 'd30692a9' #replace with os module
 
+@app.route('/', methods=['POST'])
+def webhook():
+    pass
+    
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
