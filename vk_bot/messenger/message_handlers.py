@@ -28,9 +28,6 @@ def add_friend_to_stalker_handler(friend):
 def delete_friend_from_stalker_handler(friend):
     pass
 
-def parse_online_statistics_handler(friend):
-    pass
-
 def parse_possible_photos_handler(friend):
     pass
 

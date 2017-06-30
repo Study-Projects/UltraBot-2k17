@@ -28,9 +28,6 @@ def add_friend_to_stalker_validator(friend):
 def delete_friend_from_stalker_validator(friend):
     pass
 
-def parse_online_statistics_validator(friend):
-    pass
-
 def parse_possible_photos_validator(friend):
     pass
 
