@@ -21,6 +21,3 @@ def fetch_friends_list():
 
 def fetch_groups_list():
     pass
-
-def check_online():
-    pass
