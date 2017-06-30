@@ -1,1 +1,1 @@
-web: python3 vk_bot.server.py
+web: gunicorn runp-heroku:app
