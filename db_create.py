@@ -1,5 +1,5 @@
 from vk_bot.server import db
-from vk_bot.models import groups
+from vk_bot.models.groups import News
 
 db.create_all()
 
