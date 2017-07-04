@@ -1,6 +1,6 @@
 import os
 
-DATABASE_PATH = os.environ['DATABASE_PATH']
+DATABASE_URL = os.environ['DATABASE_URL']
 BOT_GROUP_ID = os.environ['BOT_GROUP_ID']
 TOKEN = os.environ['TOKEN']
 CONFIRMATION_TOKEN = os.environ['CONFIRMATION_TOKEN']
