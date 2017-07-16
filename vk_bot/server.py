@@ -15,7 +15,7 @@ def webhook():
     user_info = vk_api.get_user_info(letter_id)
     vk_response = data['object']['body'].lower()
     if data['type'] == 'message_new':
-        vk_api.send_message(user_info, TOKEN, "Group added")
+        vk_api.send_message('177940474', TOKEN, "Group added")
     return 'ok'
 
 
