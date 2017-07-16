@@ -1,4 +1,4 @@
-from base import db
+from vk_bot.server import db
 
 class News(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
