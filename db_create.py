@@ -1,4 +1,4 @@
-from vk_bot.models.base import db
+from vk_bot.server import db
 
 db.create_all()
 
