@@ -1,4 +1,4 @@
-from vk_bot.server import db
+from vk_bot.models.base import db
 from vk_bot import vk_api
 
 def add_mem_group_handler(user_info, token, vk_response):
