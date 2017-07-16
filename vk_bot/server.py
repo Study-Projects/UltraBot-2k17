@@ -6,11 +6,6 @@ from vk_bot.messenger import message_validators,message_handlers
 from vk_bot import vk_api
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-db = SQLAlchemy(app)
-
-from vk_bot import models
 
 @app.route('/', methods=['POST'])
 def webhook():
@@ -74,7 +69,7 @@ def webhook():
     ]
     for message_validator, message_handler in message_processors:
         if message_validator(vk_response):
-            message_handler(user_info, TOKEN)
+            message_handler(user_info, TOKEN, vk_response)
     return 'ok'
 
 
