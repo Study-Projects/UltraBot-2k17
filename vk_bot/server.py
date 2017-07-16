@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 from vk_bot.messenger import message_validators,message_handlers
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET', 'POST'])
 def webhook():
     data = json.loads(request.data)
     if data['type'] == 'confirmation':
