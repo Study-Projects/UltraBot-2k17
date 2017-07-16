@@ -17,8 +17,7 @@ def webhook():
     if data['type'] == 'confirmation':
         return CONFIRMATION_TOKEN
     elif data['type'] == 'message_new':
-        letter_id = data['object']['user_id']
-        user_info = vk_api.get_user_info(letter_id)
+        user_info = data['object']['user_id']
         vk_response = data['object']['body'].capitalize()
         message_processors = [
             (
