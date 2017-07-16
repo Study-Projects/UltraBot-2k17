@@ -19,7 +19,7 @@ def webhook():
     elif data['type'] == 'message_new':
         letter_id = data['object']['user_id']
         user_info = vk_api.get_user_info(letter_id)
-        vk_response = data['object']['body'].lower()
+        vk_response = data['object']['body'].capitalize()
         message_processors = [
             (
                 message_validators.is_add_mem_group_command,
