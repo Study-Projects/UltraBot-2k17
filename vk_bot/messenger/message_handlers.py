@@ -1,6 +1,6 @@
-from vk_bot.models import base
 from vk_bot import vk_api
 from vk_bot.models import groups
+from vk_bot.models import base
 
 def add_mem_group_handler(user_info, TOKEN, vk_response):
     group_name = vk_response.split()[2]
