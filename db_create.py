@@ -1,6 +1,6 @@
-from vk_bot.models.base import db
+from vk_bot.models import base
 
-db.create_all()
+base.db.create_all()
 
 
 
