@@ -6,7 +6,8 @@ def add_mem_group_handler(user_info, token, vk_response):
     group_name = vk_response.split()[2]
     group_id = vk_response.split()[3]
     base.db.session.add(groups.Mems(group_name, group_id))
-    base.db.session.commit() 
+    base.db.session.commit()
+    return vk_api.send_message(user_info, token, "Group added") 
 
 
 def delete_mem_group_handler(user_info, token):
