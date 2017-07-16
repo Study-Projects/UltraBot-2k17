@@ -1,5 +1,5 @@
 from vk_bot import vk_api
-from vk_bot.models import groups
+from vk_bot.models.groups import Mems
 from vk_bot.models import base
 
 def add_mem_group_handler(user_info, TOKEN, vk_response):
