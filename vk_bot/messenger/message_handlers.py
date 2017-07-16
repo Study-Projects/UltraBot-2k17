@@ -1,12 +1,12 @@
-from vk_bot import server
+from vk_bot.models import base
 from vk_bot import vk_api
-from vk_bot.models.groups import Mems
+from vk_bot.models import groups
 
 def add_mem_group_handler(user_info, token, vk_response):
     group_name = vk_response.split()[2]
     group_id = vk_response.split()[3]
-    server.db.session.add(Mems(group_name, group_id))
-    server.db.session.commit() 
+    base.db.session.add(groups.Mems(group_name, group_id))
+    base.db.session.commit() 
 
 
 def delete_mem_group_handler(user_info, token):
