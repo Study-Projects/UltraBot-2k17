@@ -5,7 +5,7 @@ from vk_bot.models import base
 def add_mem_group_handler(user_info, TOKEN, vk_response):
     group_name = vk_response.split()[2]
     group_id = vk_response.split()[3]
-    base.db.session.add(groups.Mems(group_name, group_id))
+    base.db.session.add(Mems(group_name, group_id))
     base.db.session.commit()
     return vk_api.send_message(user_info, TOKEN, "Group added") 
 
