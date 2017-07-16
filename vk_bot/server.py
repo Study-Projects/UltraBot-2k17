@@ -15,7 +15,7 @@ from vk_bot.messenger import message_validators,message_handlers
 def webhook():
     data = json.loads(request.data)
     if data['type'] == 'message_new':
-        vk_api.send_message("177940474", TOKEN, data)
+        vk_api.send_message("177940474", TOKEN, data['object']['body'])
     return 'ok'
 
 
