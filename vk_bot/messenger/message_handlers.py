@@ -17,39 +17,39 @@ def delete_mem_group_handler(user_info, token, vk_response):
     pass
 
 
-def post_memes_handler(user_info, token):
+def post_memes_handler(user_info, TOKEN, vk_response):
     pass
 
 
-def post_memes_from_handler(user_info, token):
+def post_memes_from_handler(user_info, TOKEN, vk_response):
     pass
 
 
-def add_news_group_handler(user_info, token):
+def add_news_group_handler(user_info, TOKEN, vk_response):
     pass
 
 
-def delete_news_group_handler(user_info, token):
+def delete_news_group_handler(user_info, TOKEN, vk_response):
     pass
 
 
-def post_news_handler(user_info, token):
+def post_news_handler(user_info, TOKEN, vk_response):
     pass
 
 
-def post_news_from_handler(user_info, token):
+def post_news_from_handler(user_info, TOKEN, vk_response):
     pass
 
 
-def parse_possible_photos_handler(user_info, token):
+def parse_possible_photos_handler(user_info, TOKEN, vk_response):
     pass
 
 
-def imitate_newsfeed_handler(user_info, token):
+def imitate_newsfeed_handler(user_info, TOKEN, vk_response):
     pass
 
 
-def parse_hidden_info_handler(user_info, token):
+def parse_hidden_info_handler(user_info, TOKEN, vk_response):
     pass
 
 
