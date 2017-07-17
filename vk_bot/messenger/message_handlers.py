@@ -12,7 +12,8 @@ def add_mem_group_handler(user_info, TOKEN, vk_response):
 
 
 def delete_mem_group_handler(user_info, TOKEN, vk_response):
-    message = Mems.query.filter_by(group_name=vk_response.split()[2]).first()
+    group = Mems.query.filter_by(group_name=vk_response.split()[2]).first()
+    message = group.group_name
     
     return vk_api.send_message(user_info, TOKEN, message)
 
