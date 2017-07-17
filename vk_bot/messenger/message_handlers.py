@@ -14,8 +14,12 @@ def add_mem_group_handler(user_info, TOKEN, vk_response):
 def delete_mem_group_handler(user_info, TOKEN, vk_response):
     group = Mems.query.filter_by(group_name=vk_response.split()[2]).first()
     if group is None:
-        return vk_api.send_message(user_info, TOKEN, "Empty")
-    return vk_api.send_message(user_info, TOKEN, group)
+    	message = "Такой группы нет"
+        return vk_api.send_message(user_info, TOKEN, message)
+    db.session.delete(group)
+    db.session.commit()
+    message = "Группа удалена"
+    return vk_api.send_message(user_info, TOKEN, message)
 
     
 
