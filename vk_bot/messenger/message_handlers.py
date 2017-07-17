@@ -1,6 +1,8 @@
-from vk_bot import vk_api
+from vk_bot import vk_api, weather_api
 from vk_bot.server import db
 from vk_bot.models.groups import Mems
+
+from config import WEATHER_KEY
 
 def add_mem_group_handler(user_info, TOKEN, vk_response):
     group_name = vk_response.split()[2]
@@ -51,5 +53,7 @@ def parse_hidden_info_handler(user_info, token):
     pass
 
 
-def post_weater(user_info, token):
-    pass
+def post_weater(user_info, TOKEN, vk_response):
+    city = vk_response.split()[-1]
+    weather_info = weather_api.fetch_weather(WEATHER_KEY, city)
+    return vk_api.send_message(user_info, TOKEN, weather_info)
