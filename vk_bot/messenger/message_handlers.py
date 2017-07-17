@@ -13,7 +13,7 @@ def add_mem_group_handler(user_info, TOKEN, vk_response):
 
 def delete_mem_group_handler(user_info, TOKEN, vk_response):
     group = Mems.query.filter_by(group_name="МДК").first()
-    return vk_api.send_message(user_info, TOKEN, "Something")
+    return vk_api.send_message(user_info, TOKEN, group)
 
 
 def post_memes_handler(user_info, token):
