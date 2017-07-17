@@ -12,9 +12,8 @@ def add_mem_group_handler(user_info, TOKEN, vk_response):
 
 
 def delete_mem_group_handler(user_info, token, vk_response):
-    group_name = vk_response.split()[2]
-    group_id = vk_response.split()[3]
-    db.session.delete(Mems(group_name, group_id))
+    group = Mems.query.filter_by(group_name=vk_response.split()[2]).first()
+    db.session.delete(group)
     db.session.commit()
     message = "Группа удалена" 
     return vk_api.send_message(user_info, TOKEN, message)
