@@ -53,7 +53,7 @@ def parse_hidden_info_handler(user_info, TOKEN, vk_response):
     pass
 
 
-def post_weather(user_info, TOKEN, vk_response):
+def post_weather(user_info, vk_response):
     city = vk_response.split()[-1]
     weather_info = weather_api.fetch_weather(WEATHER_KEY, city)
-    return vk_api.send_message(user_info, TOKEN, weather_info)
+    return vk_api.send_message(user_info, weather_info)
