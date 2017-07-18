@@ -23,6 +23,6 @@ class Mems(db.Model):
         self.group_id = group_id
 
     def __repr__(self):
-        return '<Mems %r, %r>' % (self.group_name, self.group_id)
+        return '%r' % (self.group_id)
 
 
