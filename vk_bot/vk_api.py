@@ -20,7 +20,7 @@ def get_group_info(group_letter_id):
     group_info = api.groups.getById(group_ids=group_letter_id)
     if 'error' in group_info:
         return None
-    return group_info[0]['id']
+    return group_info[0]
 
 
 def fetch_friends_list(user_id):
@@ -37,7 +37,7 @@ def fetch_groups_list(user_id):
     return groups_list['response']
 
 
-def parse_posts(id, TOKEN):
+def parse_posts(id):
     id = '-' + str(id)
     posts = api.wall.get(owner_id=id)
     if 'error' in posts:
