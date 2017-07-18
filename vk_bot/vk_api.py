@@ -15,8 +15,8 @@ def get_user_info(user_letter_id):
     return user_info[0]
 
 
-def get_group_info(group_letter_id):
-    group_info = api.groups.getById(group_ids=group_letter_id)
+def get_group_info(group_letter_id, TOKEN):
+    group_info = api.groups.getById(access_token=TOKEN, group_ids=group_letter_id)
     if 'error' in group_info:
         return None
     return group_info[0]['id']
