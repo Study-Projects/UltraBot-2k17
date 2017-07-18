@@ -19,7 +19,7 @@ def get_group_info(group_letter_id):
     group_info = vk_group_api.groups.getById(group_ids=group_letter_id)
     if 'error' in group_info:
         return None
-    return group_info[0]['gid']
+    return group_info[0]['id']
 
 
 def fetch_friends_list(user_id):
