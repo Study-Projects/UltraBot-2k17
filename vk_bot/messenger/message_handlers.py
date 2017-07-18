@@ -22,9 +22,9 @@ def delete_mem_group_handler(user_info, TOKEN, vk_response):
     return vk_api.send_message(user_info, TOKEN, message)
 
     
-
-def post_memes_handler(user_info, token):
-    pass
+def post_memes_handler(user_info, TOKEN, vk_response):
+    groups = Mems.query.order_by(Mems.group_id)
+    return vk_api.send_message(user_info, TOKEN, groups)
 
 
 def post_memes_from_handler(user_info, token):
@@ -59,5 +59,5 @@ def parse_hidden_info_handler(user_info, token):
     pass
 
 
-def post_weater(user_info, token):
+def post_weather(user_info, token):
     pass
