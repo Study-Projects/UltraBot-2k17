@@ -64,5 +64,11 @@ def parse_hidden_info_handler(user_info, token):
     pass
 
 
+<<<<<<< HEAD
 def post_weather(user_info, token):
     pass
+=======
+def post_weater(user_info, token):
+    pass
+
+>>>>>>> 45426486b33af2e5d84473aa6d4df15dbd518bd8

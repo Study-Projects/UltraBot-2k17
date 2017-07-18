@@ -5,7 +5,7 @@ Some little project on summer from two shit-progers
 
 For download code on your local machine use:
 ```
-$ git clone https://github.com/REU-Projects/dormitory_site
+$ git clone https://github.com/Study-Projects/UltraBot-2k17
 ```
 
 After you cloned repository on your local machine, you should login in heroku client - [how to install](https://devcenter.heroku.com/articles/heroku-cli). 
@@ -28,14 +28,14 @@ Create database on heroku
 $ heroku addons:add heroku-postgresql:hobby-dev
 ```
 
+For initial deploy and making some changes on heroku, you should commit it on your local machine and push that on heroku:
+
+```
+$ git push heroku master
+```
 Create tables of your database
 ```
 $ heroku run python db_create.py
-```
-
-For initial deploy and making some changes on heroku, you should commit it on your local machine and push that on heroku:
-```
-$ git push heroku master
 ```
 
 ## License
