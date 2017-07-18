@@ -51,6 +51,6 @@ def parse_hidden_info_handler(user_info, token):
     pass
 
 
-def post_weater(user_info, token):
+def post_weather(user_info, token):
     pass
 
