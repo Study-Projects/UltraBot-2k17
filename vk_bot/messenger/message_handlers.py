@@ -1,4 +1,4 @@
-from vk_bot import vk_group_api, vk_user_api
+from vk_bot import vk_group_api, vk_user_api, weather_api
 from vk_bot.server import db
 from vk_bot.models.groups import Mems
 from config import WEATHER_KEY
