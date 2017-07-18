@@ -12,7 +12,7 @@ def get_user_info(user_letter_id):
     user_info = api.users.get(user_ids=user_letter_id)
     if 'error' in user_info:
         return None
-    return user_info[0]
+    return user_info[0]['id']
 
 
 def get_group_info(group_letter_id):
