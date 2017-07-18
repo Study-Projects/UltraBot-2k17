@@ -26,8 +26,9 @@ def post_memes_handler(user_info, TOKEN, vk_response):
     groups_letter_id = Mems.query.order_by(Mems.group_id)
     for group_letter_id in groups_letter_id:
         group_number_id = vk_api.get_group_info(str(group_letter_id)[16:-1])
-        post = vk_api.parse_posts(group_number_id)
-        vk_api.send_message(user_info, TOKEN, post) 
+        post_id = vk_api.parse_posts(group_number_id)
+        message = 'https://vk.com/wall-%s_%s' % (group_number_id, post_id)
+        vk_api.send_message(user_info, TOKEN, message) 
 
 
 def post_memes_from_handler(user_info, token):
