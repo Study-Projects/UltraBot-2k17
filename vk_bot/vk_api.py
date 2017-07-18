@@ -1,7 +1,8 @@
 import vk
 
-session = vk.Session()
-api = vk.API(session, v=5.0)
+
+session = vk.AuthSession("6118127", "+79053971888", "Artem1998",  scope='wall, messages, groups')
+api = vk.API(session)
 
 
 def send_message(user_id, token, message):
