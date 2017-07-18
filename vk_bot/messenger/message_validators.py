@@ -54,7 +54,7 @@ def is_parse_hidden_info_command(messaging_event):
 
 
 def is_post_weather_command(messaging_event):
-    validators = ['Погода','Погоду']
+    validators = ['Погода']
     return validate(validators, messaging_event)
 
 
