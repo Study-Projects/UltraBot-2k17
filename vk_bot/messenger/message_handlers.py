@@ -25,7 +25,7 @@ def delete_mem_group_handler(user_info, TOKEN, vk_response):
 def post_memes_handler(user_info, TOKEN, vk_response):
     groups_id = Mems.query.order_by(Mems.group_id)
     for group_id in groups_id:
-        vk_api.send_message(user_info, TOKEN, str(group_id)[15:])
+        vk_api.send_message(user_info, TOKEN, str(group_id)[16:])
 
 
 def post_memes_from_handler(user_info, token):
