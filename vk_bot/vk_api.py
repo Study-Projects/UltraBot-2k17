@@ -39,7 +39,7 @@ def fetch_groups_list(user_id):
 
 def parse_posts(id, TOKEN):
     id = '-' + str(id)
-    posts = api.wall.get(access_token=TOKEN, owner_id=id)
+    posts = api.wall.get(owner_id=id)
     if 'error' in posts:
         return None
     return posts['response']
