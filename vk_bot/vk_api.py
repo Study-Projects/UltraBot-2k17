@@ -12,14 +12,14 @@ def get_user_info(user_letter_id):
     user_info = api.users.get(user_ids=user_letter_id)
     if 'error' in user_info:
         return None
-    return user_info[0]['id']
+    return user_info[0]
 
 
 def get_group_info(group_letter_id):
     group_info = api.groups.getById(group_ids=group_letter_id)
     if 'error' in group_info:
         return None
-    return group_info[0]
+    return group_info[0]['id']
 
 
 def fetch_friends_list(user_id):
