@@ -27,7 +27,7 @@ def post_memes_handler(user_info, TOKEN, vk_response):
     for group_letter_id in groups_letter_id:
         group_number_id = vk_api.get_group_info(str(group_letter_id)[16:-1])
         post = vk_api.parse_posts(group_number_id)
-        vk_api.send_message(user_info, TOKEN, group_number_id) 
+        vk_api.send_message(user_info, TOKEN, post) 
 
 
 def post_memes_from_handler(user_info, token):
