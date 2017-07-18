@@ -42,4 +42,4 @@ def parse_posts(group_id):
     posts = api.wall.get(owner_id=group_id)
     if 'error' in posts:
         return None
-    return posts['response']
+    return posts[0]
