@@ -2,7 +2,7 @@ from flask import Flask,request,json
 from flask_sqlalchemy import SQLAlchemy
 import os
 from config import CONFIRMATION_TOKEN, TOKEN
-from vk_bot import vk_api
+from vk_bot import vk_group_api
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
