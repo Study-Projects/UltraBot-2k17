@@ -1,6 +1,7 @@
 import vk
+import os
 
-session = vk.AuthSession("6118127", "+79053971888", "Artem1998",  scope='wall, messages, groups')
+session = vk.AuthSession(os.environ['APP_ID'], os.environ['LOGIN'], os.environ['PASSWORD'],  scope='wall, messages, groups')
 vk_user_api = vk.API(session)
 
 def parse_posts(group_id):
