@@ -65,8 +65,8 @@ def webhook():
                 message_handlers.parse_hidden_info_handler
             ),
             (
-                message_validators.is_post_weater_command,
-                message_handlers.post_weater
+                message_validators.is_post_weather_command,
+                message_handlers.post_weather
             )
         ]
         for message_validator, message_handler in message_processors:
