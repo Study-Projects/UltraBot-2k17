@@ -45,7 +45,9 @@ def post_memes_from_handler(user_info, token):
 
 
 def post_list_of_memes_groups_handler(user_info, TOKEN, vk_response):
-    pass
+    user_data = User.query.filter_by(user_id=str(user_info)).first()
+    for users_group in user_data.mems_groups.all():
+        vk_group_api.send_message(user_info, TOKEN, users_group.group_name)
 
 
 def add_news_group_handler(user_info, token):
