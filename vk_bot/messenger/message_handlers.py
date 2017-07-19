@@ -23,7 +23,7 @@ def delete_mem_group_handler(user_info, TOKEN, vk_response):
     user_data = User.query.filter_by(user_id=str(user_info)).first()
     if user_data is None:
         message = "Чтобы пользоваться новостными функциями бота, добавьте новостигруппу или мемогруппу"
-        return vk_group_api.send_message(user_info, TOKEN, message)
+        return vk_group_api.send_message(user_info, TOKEN, message)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
     if not user_data.mems_groups.all():
         message = "Список групп пуст"
         return vk_group_api.send_message(user_info, TOKEN, message)
@@ -48,8 +48,8 @@ def post_memes_handler(user_info, TOKEN, vk_response):
     for users_group in user_data.mems_groups.all():
         group_number_id = vk_group_api.get_group_info(str(users_group.group_id)[15:])
         post_id = vk_user_api.parse_posts(group_number_id)
-        message = 'https://vk.com/wall-%s_%s' % (group_number_id, post_id)
-        vk_group_api.send_message(user_info, TOKEN, message) 
+        #message = 'https://vk.com/wall-%s_%s' % (group_number_id, post_id)
+        vk_group_api.send_message(user_info, TOKEN, post_id) 
 
 
 def post_memes_from_handler(user_info, token):
