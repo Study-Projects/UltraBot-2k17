@@ -37,6 +37,10 @@ def webhook():
                 message_handlers.post_memes_from_handler
             ),
             (
+                message_validators.is_post_list_of_memes_group_command,
+                message_handlers.post_list_of_memes_groups_handler
+            ),
+            (
                 message_validators.is_add_news_group_command,
                 message_handlers.add_mem_group_handler
             ),
@@ -51,6 +55,10 @@ def webhook():
             (
                 message_validators.is_post_news_from_command,
                 message_handlers.post_news_from_handler
+            ),
+            (
+                message_validators.is_post_list_of_news_group_command,
+                message_handlers.post_list_of_news_groups_handler
             ),
             (
                 message_validators.is_parse_possible_photos_command,
