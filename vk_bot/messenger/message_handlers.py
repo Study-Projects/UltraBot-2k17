@@ -22,8 +22,11 @@ def delete_mem_group_handler(user_info, TOKEN, vk_response):
         if users_group.group_name == deleted_group:
             db.session.delete(users_group)
             db.session.commit()
-    message = "Группа удалена"
+            message = "Группа удалена"
+            return vk_group_api.send_message(user_info, TOKEN, message)
+    message = "Такой группы нет"
     return vk_group_api.send_message(user_info, TOKEN, message)
+    
 
     
 def post_memes_handler(user_info, TOKEN, vk_response):
