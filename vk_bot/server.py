@@ -58,7 +58,7 @@ def webhook():
             ),
             (
                 message_validators.is_post_list_of_news_groups_command,
-                message_handlers.post_list_of_news_groups_handler                                                                                                                                                                                                                                                         
+                message_handlers.is_post_list_of_news_groups_command_handler                                                                                                                                                                                                                                                         
             ),
             (
                 message_validators.is_parse_possible_photos_command,
@@ -80,10 +80,9 @@ def webhook():
         for message_validator, message_handler in message_processors:
             if message_validator(vk_response):
                 message_handler(user_info, TOKEN, vk_response)
-            else:
-                message_handlers.default_handler(user_info, TOKEN, vk_response)
-        return 'ok'
-
+                return 'ok'
+        message_handlers.default_handler(user_info, TOKEN, vk_response)
+        return 'ok'    
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
