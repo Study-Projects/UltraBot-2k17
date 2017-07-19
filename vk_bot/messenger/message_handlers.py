@@ -4,7 +4,7 @@ from vk_bot.models.groups import User, Mems_group, News_group
 from config import WEATHER_KEY
 
 def add_mem_group_handler(user_info, TOKEN, vk_response):
-    user = User(user_id=user_info)
+    user = User(user_id=str(user_info))
     group_name = vk_response.split()[2]
     group_id = vk_response.split()[3]
     mems_group = Mems_group(group_name=group_name, group_id=group_id, owner=user)
