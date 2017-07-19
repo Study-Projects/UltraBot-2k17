@@ -10,4 +10,4 @@ def parse_posts(group_id):
     posts = vk_user_api.wall.get(owner_id=group_id)
     if 'error' in posts:
         return None
-    return posts
+    return posts[1]['text']
