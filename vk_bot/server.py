@@ -58,7 +58,7 @@ def webhook():
             ),
             (
                 message_validators.is_post_list_of_news_groups_command,
-                message_handlers.is_post_list_of_news_groups_command_handler                                                                                                                                                                                                                                                         
+                message_handlers.post_list_of_news_groups_handler                                                                                                                                                                                                                                                         
             ),
             (
                 message_validators.is_parse_possible_photos_command,
