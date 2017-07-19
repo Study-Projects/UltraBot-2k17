@@ -17,8 +17,8 @@ def add_mem_group_handler(user_info, TOKEN, vk_response):
 
 def delete_mem_group_handler(user_info, TOKEN, vk_response):
     deleted_group = vk_response.split()[2]
-    users_groups = User.query.filter_by(user_id=str(user_info)).first()
-    for users_group in users_groups.mems_groups.all():
+    user_data = User.query.filter_by(user_id=str(user_info)).first()
+    for users_group in user_data.mems_groups.all():
         if users_group.group_name == deleted_group:
             db.session.delete(users_group)
             db.session.commit()
@@ -28,7 +28,6 @@ def delete_mem_group_handler(user_info, TOKEN, vk_response):
     return vk_group_api.send_message(user_info, TOKEN, message)
     
 
-    
 def post_memes_handler(user_info, TOKEN, vk_response):
     users_groups = User.query.filter_by(user_id=str(user_info)).first()
     for users_group in users_groups.mems_groups.all():
