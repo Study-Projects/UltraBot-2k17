@@ -1,5 +1,4 @@
 import urllib.request
-import json
 
 
 def fetch_weather(weather_key, city):

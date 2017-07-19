@@ -1,6 +1,7 @@
 from vk_bot import vk_group_api, vk_user_api, weather_api
 from vk_bot.server import db
 from vk_bot.models.groups import User, Mems_group, News_group
+
 from config import WEATHER_KEY
 
 def add_mem_group_handler(user_info, TOKEN, vk_response):
@@ -34,7 +35,7 @@ def delete_mem_group_handler(user_info, TOKEN, vk_response):
             return vk_group_api.send_message(user_info, TOKEN, message)
     message = "Такой группы нет"
     return vk_group_api.send_message(user_info, TOKEN, message)
-    
+
 
 def post_memes_handler(user_info, TOKEN, vk_response):
     user_data = User.query.filter_by(user_id=str(user_info)).first()
@@ -48,7 +49,7 @@ def post_memes_handler(user_info, TOKEN, vk_response):
         group_number_id = vk_group_api.get_group_info(str(users_group.group_id)[15:])
         post_id = vk_user_api.parse_posts(group_number_id)
         message = 'https://vk.com/wall-%s_%s' % (group_number_id, post_id)
-        vk_group_api.send_message(user_info, TOKEN, message) 
+        vk_group_api.send_message(user_info, TOKEN, message)
 
 
 def post_memes_from_handler(user_info, TOKEN, vk_response):
@@ -80,19 +81,19 @@ def post_list_of_memes_groups_handler(user_info, TOKEN, vk_response):
         vk_group_api.send_message(user_info, TOKEN, users_group.group_name)
 
 
-def add_news_group_handler(user_info, token):
+def add_news_group_handler(user_info, TOKEN, vk_response):
     pass
 
 
-def delete_news_group_handler(user_info, token):
+def delete_news_group_handler(user_info, TOKEN, vk_response):
     pass
 
 
-def post_news_handler(user_info, token):
+def post_news_handler(user_info, TOKEN, vk_response):
     pass
 
 
-def post_news_from_handler(user_info, token):
+def post_news_from_handler(user_info, TOKEN, vk_response):
     pass
 
 
@@ -100,15 +101,15 @@ def post_list_of_news_groups_handler(user_info, TOKEN, vk_response):
     pass
 
 
-def parse_possible_photos_handler(user_info, token):
+def parse_possible_photos_handler(user_info, TOKEN, vk_response):
     pass
 
 
-def imitate_newsfeed_handler(user_info, token):
+def imitate_newsfeed_handler(user_info, TOKEN, vk_response):
     pass
 
 
-def parse_hidden_info_handler(user_info, token):
+def parse_hidden_info_handler(user_info, TOKEN, vk_response):
     pass
 
 
@@ -121,3 +122,4 @@ def post_weather_handler(user_info, TOKEN, vk_response):
 def default_handler(user_info, TOKEN, vk_response):
     message = 'Я тебя не понял. Возможно, ты опечатался.'
     return vk_group_api.send_message(user_info, TOKEN, message)
+
