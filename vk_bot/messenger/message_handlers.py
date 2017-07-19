@@ -117,3 +117,7 @@ def post_weather_handler(user_info, TOKEN, vk_response):
     weather_info = weather_api.fetch_weather(WEATHER_KEY, city)
     return vk_group_api.send_message(user_info, TOKEN, weather_info)
 
+
+def default_handler(user_info, TOKEN, vk_response):
+    message = 'Я тебя не понял. Возможно, ты опечатался.'
+    return vk_group_api.send_message(user_info, TOKEN, message)
