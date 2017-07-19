@@ -16,12 +16,12 @@ def add_mem_group_handler(user_info, TOKEN, vk_response):
 
 
 def delete_mem_group_handler(user_info, TOKEN, vk_response):
-    group = Mems.query.filter_by(group_name=vk_response.split()[2]).first()
-    if group is None:
-        message = "Такой группы нет"
-        return vk_group_api.send_message(user_info, TOKEN, message)
-    db.session.delete(group)
-    db.session.commit()
+    deleted_group = vk_response.split()[2]
+    users_groups = User.query.filter_by(user_id=str(user_info)).first()
+    for users_group in users_groups.mems_groups.all():
+        if users_group.group_name == deleted_group:
+            db.session.delete(users_group)
+            db.session.commit()
     message = "Группа удалена"
     return vk_group_api.send_message(user_info, TOKEN, message)
 
