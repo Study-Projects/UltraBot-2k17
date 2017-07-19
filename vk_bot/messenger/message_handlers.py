@@ -44,6 +44,10 @@ def post_memes_from_handler(user_info, token):
     pass
 
 
+def post_list_of_memes_groups_handler(user_info, TOKEN, vk_response):
+    pass
+
+
 def add_news_group_handler(user_info, token):
     pass
 
@@ -57,6 +61,10 @@ def post_news_handler(user_info, token):
 
 
 def post_news_from_handler(user_info, token):
+    pass
+
+
+def post_list_of_news_groups(user_info, TOKEN, vk_response):
     pass
 
 
