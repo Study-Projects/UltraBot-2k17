@@ -30,9 +30,9 @@ def delete_mem_group_handler(user_info, TOKEN, vk_response):
 
     
 def post_memes_handler(user_info, TOKEN, vk_response):
-    groups_letter_id = Mems.query.order_by(Mems.group_id)
-    for group_letter_id in groups_letter_id:
-        group_number_id = vk_group_api.get_group_info(str(group_letter_id)[16:-1])
+    users_groups = User.query.filter_by(user_id=str(user_info)).first()
+    for users_group in users_groups.mems_groups.all():
+        group_number_id = vk_group_api.get_group_info(str(users_group.group_id)[16:-1])
         post_id = vk_user_api.parse_posts(group_number_id)
         message = 'https://vk.com/wall-%s_%s' % (group_number_id, post_id)
         vk_group_api.send_message(user_info, TOKEN, message) 
