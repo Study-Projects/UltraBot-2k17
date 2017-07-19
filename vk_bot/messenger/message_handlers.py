@@ -21,6 +21,9 @@ def add_mem_group_handler(user_info, TOKEN, vk_response):
 def delete_mem_group_handler(user_info, TOKEN, vk_response):
     deleted_group = vk_response.split()[2]
     user_data = User.query.filter_by(user_id=str(user_info)).first()
+    if user_data is None:
+        message = "Чтобы пользоваться новостными функциями бота, добавьте новостигруппу или мемогруппу"
+        return vk_group_api.send_message(user_info, TOKEN, message)
     if not user_data.mems_groups.all():
         message = "Список групп пуст"
         return vk_group_api.send_message(user_info, TOKEN, message)
@@ -36,6 +39,9 @@ def delete_mem_group_handler(user_info, TOKEN, vk_response):
 
 def post_memes_handler(user_info, TOKEN, vk_response):
     user_data = User.query.filter_by(user_id=str(user_info)).first()
+    if user_data is None:
+        message = "Чтобы пользоваться новостными функциями бота, добавьте новостигруппу или мемогруппу"
+        return vk_group_api.send_message(user_info, TOKEN, message)
     if not user_data.mems_groups.all():
         message = "Список групп пуст"
         return vk_group_api.send_message(user_info, TOKEN, message)
@@ -52,6 +58,9 @@ def post_memes_from_handler(user_info, token):
 
 def post_list_of_memes_groups_handler(user_info, TOKEN, vk_response):
     user_data = User.query.filter_by(user_id=str(user_info)).first()
+    if user_data is None:
+        message = "Чтобы пользоваться новостными функциями бота, добавьте новостигруппу или мемогруппу"
+        return vk_group_api.send_message(user_info, TOKEN, message)
     if not user_data.mems_groups.all():
         message = "Список групп пуст"
         return vk_group_api.send_message(user_info, TOKEN, message)
