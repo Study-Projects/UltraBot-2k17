@@ -18,7 +18,7 @@ def is_post_memes_from_command(messaging_event):
     return validate(validators, messaging_event)
 
 
-def is_post_list_of_memes_group_command('messaging_event'):
+def is_post_list_of_memes_group_command(messaging_event):
     validators = ['Пришли список мемогрупп']
     return validate(validators, messaging_event)
 
