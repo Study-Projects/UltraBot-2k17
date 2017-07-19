@@ -64,7 +64,7 @@ def post_news_from_handler(user_info, token):
     pass
 
 
-def post_list_of_news_groups(user_info, TOKEN, vk_response):
+def post_list_of_news_groups_handler(user_info, TOKEN, vk_response):
     pass
 
 
