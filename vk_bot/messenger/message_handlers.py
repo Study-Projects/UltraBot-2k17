@@ -1,7 +1,6 @@
 from vk_bot import vk_group_api, vk_user_api, weather_api
 from vk_bot.server import db
 from vk_bot.models.groups import User, Mems_group, News_group
-
 from config import WEATHER_KEY
 
 def add_mem_group_handler(user_info, TOKEN, vk_response):
