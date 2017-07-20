@@ -2,6 +2,11 @@ from vk_bot import vk_group_api, vk_user_api, weather_api
 from vk_bot.server import db
 from vk_bot.models.groups import User, Mems_group, News_group
 from config import WEATHER_KEY
+import logging
+from logging.config import fileConfig
+
+fileConfig('logging_config.ini')
+logger = logging.getLogger()
 
 def add_mem_group_handler(user_info, TOKEN, vk_response):
     user_id = User.query.filter_by(user_id=str(user_info)).first()
@@ -21,6 +26,7 @@ def delete_mem_group_handler(user_info, TOKEN, vk_response):
     deleted_group = vk_response.split()[2]
     user_data = User.query.filter_by(user_id=str(user_info)).first()
     if user_data is None:
+        logger.error('No user data in DB with this id %s' % (user_info))
         message = "Чтобы пользоваться новостными функциями бота, добавьте новостигруппу или мемогруппу"
         return vk_group_api.send_message(user_info, TOKEN, message)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
     if not user_data.mems_groups.all():
