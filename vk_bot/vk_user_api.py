@@ -12,7 +12,6 @@ def parse_posts(group_id):
         return None
     text = posts[1]
     attachments_objects = []
-    '''
     if 'attachments' in posts[1]:
         attachments = posts[1]['attachments']
         for attachment in attachments:
@@ -21,5 +20,4 @@ def parse_posts(group_id):
                 attachment_owner_id = attachment[attachment_type]['owner_id']
                 attachments_object = '%s%s_%s' % (attachment_type, attachment_id, attachment_owner_id)
                 attachments_objects.append(attachments_object)
-    '''
-    return posts, attachments_objects
+    return text, attachments_objects
