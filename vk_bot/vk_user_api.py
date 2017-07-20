@@ -12,8 +12,8 @@ def parse_posts(group_id):
         return None
     text = posts[1]
     attachments_objects = []
-    if 'attachments' in posts[1]:
-        attachments = posts[1]['attachments']
+    if 'attachments' in posts[0]:
+        attachments = posts[0]['attachments']
         for attachment in attachments:
                 attachment_type = attachment['type']
                 attachment_id = attachment[attachment_type]['id']
