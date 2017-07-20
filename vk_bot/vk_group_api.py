@@ -4,9 +4,12 @@ session = vk.Session()
 vk_group_api = vk.API(session, v=5.0)
 
 
-def send_message(user_id, token, message):
-    vk_group_api.messages.send(access_token=token, user_id=str(user_id), message=message)
-
+def send_message(user_id, token, message, attachments=None):
+    if attachments is None:
+        vk_group_api.messages.send(access_token=token, user_id=str(user_id), message=message)
+    else:
+        attachments = ','.join(attachments)
+        vk_group_api.messages.send(access_token=token, user_id=str(user_id), message=message, attachments=attachments)
 
 def get_user_info(user_letter_id):
     user_info = vk_group_api.users.get(user_ids=user_letter_id)

@@ -46,9 +46,8 @@ def post_memes_handler(user_info, TOKEN, vk_response):
         return vk_group_api.send_message(user_info, TOKEN, message)
     for users_group in user_data.mems_groups.all():
         group_number_id = vk_group_api.get_group_info(str(users_group.group_id)[15:])
-        post_id = vk_user_api.parse_posts(group_number_id)
-        message = 'https://vk.com/wall-%s_%s' % (group_number_id, post_id)
-        vk_group_api.send_message(user_info, TOKEN, message)
+        post_text, post_attachments = vk_user_api.parse_posts(group_number_id)
+        vk_group_api.send_message(user_info, TOKEN, post_text, post_attachments)
 
 
 def post_memes_from_handler(user_info, TOKEN, vk_response):
@@ -63,9 +62,8 @@ def post_memes_from_handler(user_info, TOKEN, vk_response):
     for users_group in user_data.mems_groups.all():
         if users_group.group_name == post_desirable_group:
             group_number_id = vk_group_api.get_group_info(str(users_group.group_id)[15:])
-            post_id = vk_user_api.parse_posts(group_number_id)
-            message = 'https://vk.com/wall-%s_%s' % (group_number_id, post_id)
-            vk_group_api.send_message(user_info, TOKEN, message) 
+            post_text, post_attachments = vk_user_api.parse_posts(group_number_id)
+            vk_group_api.send_message(user_info, TOKEN, post_text, post_attachments)
 
 
 def post_list_of_memes_groups_handler(user_info, TOKEN, vk_response):

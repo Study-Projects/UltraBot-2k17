@@ -80,7 +80,11 @@ def webhook():
         for message_validator, message_handler in message_processors:
             if message_validator(vk_response):
                 message_handler(user_info, TOKEN, vk_response)
-        return 'ok'    
+                break
+        else:
+            message_handlers.default_handler(user_info, TOKEN, vk_response)
+        return 'ok'
+
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
