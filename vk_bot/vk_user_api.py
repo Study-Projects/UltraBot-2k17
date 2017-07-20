@@ -10,7 +10,7 @@ def parse_posts(group_id):
     posts = vk_user_api.wall.get(owner_id=group_id)
     if 'error' in posts:
         return None
-    text = posts[1]
+    text = posts[0]
     attachments_objects = []
     if 'attachments' in posts[0]:
         attachments = posts[0]['attachments']
