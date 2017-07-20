@@ -15,14 +15,9 @@ def parse_posts(group_id):
     if 'attachments' in posts[1]:
         attachments = posts[1]['attachments']
         for attachment in attachments:
-            if attachment['type'] == 'video':
-                preview_id = attachment['video']['id']
-                preview_owner_id = attachment['video']['owner_id']
-                video = 'video%s_%s' % (preview_owner_id, preview_id)
-                attachments_objects.append(video)
-            if attachment['type'] == 'photo':
-                photo_id = attachment['photo']['id']
-                photo_owner_id = attachment['photo']['owner_id']
-                photo = 'photo%s_%s' % (photo_owner_id, photo_id)
-                attachments_objects.append(photo)
+                attachment_type = attachment['type']
+                attachment_id = attachment[attachment_type]['id']
+                attachment_owner_id = attachment[attachment_type]['owner_id']
+                attachments_object = '%s%s_%s' % (attachment_type, attachment_id, attachment_owner_id)
+                attachments_objects.append(attachments_object)
     return text, attachments_objects
