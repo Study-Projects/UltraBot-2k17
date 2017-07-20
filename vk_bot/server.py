@@ -80,6 +80,7 @@ def webhook():
         for message_validator, message_handler in message_processors:
             if message_validator(vk_response):
                 message_handler(user_info, TOKEN, vk_response)
+                break
         else:
             message_handlers.default_handler(user_info, TOKEN, vk_response)
         return 'ok'
