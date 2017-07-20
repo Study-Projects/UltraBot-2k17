@@ -80,6 +80,7 @@ def post_list_of_memes_groups_handler(user_info, TOKEN, vk_response):
         message = "Чтобы пользоваться новостными функциями бота, добавьте новостигруппу или мемогруппу"
         return vk_group_api.send_message(user_info, TOKEN, message)
     if not user_data.mems_groups.all():
+        logger.error('List of mems group is empty')
         message = "Список групп пуст"
         return vk_group_api.send_message(user_info, TOKEN, message)
     for users_group in user_data.mems_groups.all():
