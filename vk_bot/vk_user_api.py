@@ -3,7 +3,7 @@ import os
 from config import APP_ID, LOGIN, PASSWORD
 
 session = vk.AuthSession(APP_ID, LOGIN, PASSWORD, scope='wall, messages, groups')
-vk_user_api = vk.API(session)
+vk_user_api = vk.API(session, v=5.0)
 
 def parse_posts(group_id):
     group_id = -int(group_id)
