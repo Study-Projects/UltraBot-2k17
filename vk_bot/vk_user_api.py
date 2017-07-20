@@ -22,4 +22,4 @@ def parse_posts(group_id):
                 attachments_object = '%s%s_%s' % (attachment_type, attachment_id, attachment_owner_id)
                 attachments_objects.append(attachments_object)
     '''
-    return text, attachments_objects
+    return posts
