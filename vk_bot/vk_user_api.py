@@ -10,6 +10,8 @@ def parse_posts(group_id):
     if 'error' in posts:
         return None
     text = posts[1]['text']
+    if text is None or text is '':
+        text = 'None'
     attachments_objects = []
     if 'attachments' in posts[1]:
         attachments = posts[1]['attachments']
