@@ -25,8 +25,8 @@ def webhook():
                 message_handlers.add_group_handler
             ),
             (
-                message_validators.is_delete_mem_group_command,
-                message_handlers.delete_mem_group_handler
+                message_validators.is_delete_group_command,
+                message_handlers.delete_group_handler
             ),
             (
                 message_validators.is_post_memes_command,
@@ -39,10 +39,6 @@ def webhook():
             (
                 message_validators.is_post_list_of_memes_groups_command,
                 message_handlers.post_list_of_memes_groups_handler
-            ),
-            (
-                message_validators.is_delete_news_group_command,
-                message_handlers.delete_news_group_handler
             ),
             (
                 message_validators.is_post_news_command,
