@@ -37,10 +37,15 @@ def delete_mem_group_handler(user_info, TOKEN, vk_response):
     if user_data is None:
         message = "Чтобы пользоваться новостными функциями бота, добавьте новостигруппу или мемогруппу"
         return vk_group_api.send_message(user_info, TOKEN, message)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
-    if not user_data.mems_groups.all():
+    deleted_group_type = vk_response.split()[1]
+    if deleted_group_type == "мемогруппу":
+        users_groups = user_data.mems_groups.all()
+    elif deleted_group_type == "новостигруппу":
+        users_groups = user_data.news_groups.all()
+    if not users_groups:
         message = "Список групп пуст"
         return vk_group_api.send_message(user_info, TOKEN, message)
-    for users_group in user_data.mems_groups.all():
+    for users_group in users_groups:
         if users_group.group_name == deleted_group:
             db.session.delete(users_group)
             db.session.commit()
