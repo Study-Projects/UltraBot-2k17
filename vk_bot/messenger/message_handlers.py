@@ -112,22 +112,6 @@ def post_list_of_groups_handler(user_info, TOKEN, vk_response):
         vk_group_api.send_message(user_info, TOKEN, users_group.group_name)
 
 
-def delete_news_group_handler(user_info, TOKEN, vk_response):
-    pass
-
-
-def post_news_handler(user_info, TOKEN, vk_response):
-    pass
-
-
-def post_news_from_handler(user_info, TOKEN, vk_response):
-    pass
-
-
-def post_list_of_news_groups_handler(user_info, TOKEN, vk_response):
-    pass
-
-
 def parse_possible_photos_handler(user_info, TOKEN, vk_response):
     pass
 
