@@ -55,15 +55,20 @@ def delete_group_handler(user_info, TOKEN, vk_response):
     return vk_group_api.send_message(user_info, TOKEN, message)
 
 
-def post_memes_handler(user_info, TOKEN, vk_response):
+def post_handler(user_info, TOKEN, vk_response):
+    post_type = vk_response.split()[2]
     user_data = User.query.filter_by(user_id=str(user_info)).first()
     if user_data is None:
         message = "Чтобы пользоваться новостными функциями бота, добавьте новостигруппу или мемогруппу"
         return vk_group_api.send_message(user_info, TOKEN, message)
-    if not user_data.mems_groups.all():
+    if post_type == "мемы":
+        users_groups = user_data.mems_groups.all()
+    elif post_type == "новости":
+        users_groups = user_data.news_groups.all()
+    if not users_groups:
         message = "Список групп пуст"
         return vk_group_api.send_message(user_info, TOKEN, message)
-    for users_group in user_data.mems_groups.all():
+    for users_group in users_groups:
         group_number_id = vk_group_api.get_group_info(str(users_group.group_id)[15:])
         post_text, post_attachments = vk_user_api.parse_posts(group_number_id)
         vk_group_api.send_message(user_info, TOKEN, post_text, post_attachments)
