@@ -19,12 +19,12 @@ def is_post_from_command(messaging_event):
 
 
 def is_post_list_of_memes_groups_command(messaging_event):
-    validators = ['Пришли список мемогрупп']
+    validators = ['Пришли список мемогрупп', 'Пришли список новостигрупп']
     return validate(validators, messaging_event)
 
 
 def is_post_list_of_news_groups_command(messaging_event):                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
-    validators = ['Пришли список новостигрупп']
+    validators = ['Пришли список новостmгрупп']
     return validate(validators, messaging_event)
 
 
