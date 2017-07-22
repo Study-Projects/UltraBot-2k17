@@ -12,10 +12,18 @@ def add_group_handler(user_info, TOKEN, vk_response):
     group_name = vk_response.split()[2]
     group_id = vk_response.split()[3]
     if group_type == "мемогруппу":
+        for users_group in user_id.mems_groups.all():
+            if users_group.group_name == group_name:
+                message = "Эта группа уже добавлена"
+                return vk_group_api.send_message(user_info, TOKEN, message)
         mems_group = Mems_group(group_name=group_name, group_id=group_id, owner=user_id)
         db.session.add(mems_group)
         db.session.commit()
     elif group_type == "новостигруппу":
+        for users_group in user_id.news_groups.all():
+            if users_group.group_name == group_name:
+                message = "Эта группа уже добавлена"
+                return vk_group_api.send_message(user_info, TOKEN, message)
         news_group = News_group(group_name=group_name, group_id=group_id, owner=user_id)
         db.session.add(news_group)
         db.session.commit()
