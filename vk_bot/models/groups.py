@@ -2,7 +2,7 @@ from vk_bot.server import db
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.String(128), nullable=False)
+    user_id = db.Column(db.String(128), unique=True, nullable=False)
     mems_groups = db.relationship('Mems_group', backref='owner', lazy='dynamic')
     news_groups = db.relationship('News_group', backref='owner', lazy='dynamic')
         
