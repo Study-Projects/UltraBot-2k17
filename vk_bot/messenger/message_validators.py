@@ -23,11 +23,6 @@ def is_post_list_of_memes_groups_command(messaging_event):
     return validate(validators, messaging_event)
 
 
-def is_add_news_group_command(messaging_event):
-    validators = ['Добавь новостьгруппу']
-    return validate(validators, messaging_event)
-
-
 def is_delete_news_group_command(messaging_event):
     validators = ['Удали новостигруппу']
     return validate(validators, messaging_event)
