@@ -3,7 +3,7 @@ def is_add_group_command(messaging_event):
     return validate(validators, messaging_event)
 
 
-def is_delete_mem_group_command(messaging_event):
+def is_delete_group_command(messaging_event):
     validators = ['Удали мемогруппу', 'Удали новостигруппу']
     return validate(validators, messaging_event)
 
@@ -20,11 +20,6 @@ def is_post_memes_from_command(messaging_event):
 
 def is_post_list_of_memes_groups_command(messaging_event):
     validators = ['Пришли список мемогрупп']
-    return validate(validators, messaging_event)
-
-
-def is_delete_news_group_command(messaging_event):
-    validators = ['Удали новостьгруппу']
     return validate(validators, messaging_event)
 
 
