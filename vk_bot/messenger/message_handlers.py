@@ -18,7 +18,8 @@ def add_group_handler(user_info, TOKEN, vk_response):
         added_groups = user_id.news_groups.all()
         group_to_add = News_group(group_name=group_name, group_id=group_id, owner=user_id)
     else:
-        return
+        message = "Не понял тип группы"
+        return vk_group_api.send_message(user_info, TOKEN, message)
     for users_group in added_groups:
         if users_group.group_name == group_name:
             message = "Эта группа уже добавлена"
@@ -26,7 +27,7 @@ def add_group_handler(user_info, TOKEN, vk_response):
     db.session.add(group_to_add)
     db.session.commit()
     message = "Группа добавлена"
-    return vk_group_api.send_message(user_info, TOKEN, message) 
+    return vk_group_api.send_message(user_info, TOKEN, message)
 
 
 def delete_group_handler(user_info, TOKEN, vk_response):
