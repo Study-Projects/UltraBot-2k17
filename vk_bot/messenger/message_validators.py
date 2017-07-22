@@ -8,8 +8,8 @@ def is_delete_group_command(messaging_event):
     return validate(validators, messaging_event)
 
 
-def is_post_memes_command(messaging_event):
-    validators = ['Пришли свежие мемы']
+def is_post_command(messaging_event):
+    validators = ['Пришли свежие мемы', 'Пришли свежие новости']
     return validate(validators, messaging_event)
 
 
@@ -24,7 +24,7 @@ def is_post_list_of_memes_groups_command(messaging_event):
 
 
 def is_post_news_command(messaging_event):
-    validators = ['Пришли свежие новости']
+    validators = ['Пришли свежие новость']
     return validate(validators, messaging_event)
 
 
