@@ -74,16 +74,21 @@ def post_handler(user_info, TOKEN, vk_response):
         vk_group_api.send_message(user_info, TOKEN, post_text, post_attachments)
 
 
-def post_memes_from_handler(user_info, TOKEN, vk_response):
+def post_from_handler(user_info, TOKEN, vk_response):
+    post_desirable_type = vk_response.split()[1]
     post_desirable_group = vk_response.split()[3]
     user_data = User.query.filter_by(user_id=str(user_info)).first()
     if user_data is None:
         message = "Чтобы пользоваться новостными функциями бота, добавьте новостигруппу или мемогруппу"
         return vk_group_api.send_message(user_info, TOKEN, message)
-    if not user_data.mems_groups.all():
+    if post_desirable_type == "мемы":
+        users_groups = user_data.mems_groups.all()
+    elif post_desirable_type == "новости":
+        users_groups = user_data.news_groups.all()
+    if not users_groups:
         message = "Список групп пуст"
         return vk_group_api.send_message(user_info, TOKEN, message)
-    for users_group in user_data.mems_groups.all():
+    for users_group in users_groups:
         if users_group.group_name == post_desirable_group:
             group_number_id = vk_group_api.get_group_info(str(users_group.group_id)[15:])
             post_text, post_attachments = vk_user_api.parse_posts(group_number_id)
