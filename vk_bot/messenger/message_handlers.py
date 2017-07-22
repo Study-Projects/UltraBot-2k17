@@ -123,6 +123,21 @@ def post_list_of_groups_handler(user_info, TOKEN, vk_response):
         vk_group_api.send_message(user_info, TOKEN, users_group.group_name)
 
 
+def delete_all_groups_handler(user_info, TOKEN, vk_response):
+    pass
+
+
+def help_handler(user_info, TOKEN, vk_response):
+    message = """Добавь (мемо/новости)группу <название группы> <ссылка>
+    Удали (мемо/новости)группу <название группы>
+    Удали все (мемо/новости)группы
+    Пришли свежие (мемы/новости)
+    Пришли (мемы/новости) из <название группы>
+    Пришли список (мемо/новости)групп
+    Погода <город>"""
+    return vk_group_api.send_message(user_info, TOKEN, message)
+
+
 def parse_possible_photos_handler(user_info, TOKEN, vk_response):
     pass
 

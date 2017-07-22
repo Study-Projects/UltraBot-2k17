@@ -43,6 +43,11 @@ def is_post_weather_command(messaging_event):
     return validate(validators, messaging_event)
 
 
+def is_help_command(messaging_event):
+    validators = ['Помощь', 'Меню']
+    return validate(validators, messaging_event)
+
+
 def validate(validators, messaging_event):
     for validator in validators:
         if validator in messaging_event:

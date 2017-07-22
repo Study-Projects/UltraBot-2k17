@@ -55,6 +55,10 @@ def webhook():
             (
                 message_validators.is_post_weather_command,
                 message_handlers.post_weather_handler
+            ),
+            (
+                message_validators.is_help_command,
+                message_handlers.help_handler
             )
         ]
         for message_validator, message_handler in message_processors:
