@@ -4,7 +4,7 @@ def is_add_group_command(messaging_event):
 
 
 def is_delete_mem_group_command(messaging_event):
-    validators = ['Удали мемогруппу']
+    validators = ['Удали мемогруппу', 'Удали новостигруппу']
     return validate(validators, messaging_event)
 
 
@@ -24,7 +24,7 @@ def is_post_list_of_memes_groups_command(messaging_event):
 
 
 def is_delete_news_group_command(messaging_event):
-    validators = ['Удали новостигруппу']
+    validators = ['Удали новостьгруппу']
     return validate(validators, messaging_event)
 
 
