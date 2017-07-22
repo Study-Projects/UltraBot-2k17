@@ -124,7 +124,26 @@ def post_list_of_groups_handler(user_info, TOKEN, vk_response):
 
 
 def delete_all_groups_handler(user_info, TOKEN, vk_response):
-    pass
+    user_data = User.query.filter_by(user_id=str(user_info)).first()
+    if user_data is None:
+        message = "Чтобы пользоваться новостными функциями бота, добавьте новостигруппу или мемогруппу"
+        return vk_group_api.send_message(user_info, TOKEN, message)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+    deleted_group_type = vk_response.split()[-1]
+    if is_memes_group(deleted_group_type):
+        users_groups = user_data.mems_groups.all()
+    elif is_news_group(deleted_group_type):
+        users_groups = user_data.news_groups.all()
+    else:
+        message = "Не понял тип групп"
+        return vk_group_api.send_message(user_info, TOKEN, message)
+    if not users_groups:
+        message = "Список групп пуст"
+        return vk_group_api.send_message(user_info, TOKEN, message)
+    for users_group in users_groups:
+        db.session.delete(users_group)
+        db.session.commit()
+    message = "Группы удалены"
+    return vk_group_api.send_message(user_info, TOKEN, message)
 
 
 def help_handler(user_info, TOKEN, vk_response):

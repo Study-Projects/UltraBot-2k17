@@ -48,6 +48,11 @@ def is_help_command(messaging_event):
     return validate(validators, messaging_event)
 
 
+def is_delete_all_groups_command(messaging_event):
+    validators = ['Удали все']
+    return validate(validators, messaging_event)
+
+
 def validate(validators, messaging_event):
     for validator in validators:
         if validator in messaging_event:

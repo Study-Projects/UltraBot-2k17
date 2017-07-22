@@ -59,7 +59,11 @@ def webhook():
             (
                 message_validators.is_help_command,
                 message_handlers.help_handler
-            )
+            ),
+            (
+                message_validators.is_delete_all_groups_command,
+                message_handlers.delete_all_groups_handler
+            ),
         ]
         for message_validator, message_handler in message_processors:
             if message_validator(vk_response):
