@@ -84,10 +84,6 @@ def post_list_of_memes_groups_handler(user_info, TOKEN, vk_response):
         vk_group_api.send_message(user_info, TOKEN, users_group.group_name)
 
 
-def add_news_group_handler(user_info, TOKEN, vk_response):
-    pass
-
-
 def delete_news_group_handler(user_info, TOKEN, vk_response):
     pass
 
