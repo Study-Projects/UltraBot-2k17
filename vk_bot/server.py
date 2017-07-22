@@ -41,10 +41,6 @@ def webhook():
                 message_handlers.post_list_of_memes_groups_handler
             ),
             (
-                message_validators.is_post_news_command,
-                message_handlers.post_news_handler
-            ),
-            (
                 message_validators.is_post_news_from_command,
                 message_handlers.post_news_from_handler
             ),
