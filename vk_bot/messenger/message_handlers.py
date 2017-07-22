@@ -37,10 +37,13 @@ def delete_group_handler(user_info, TOKEN, vk_response):
         message = "Чтобы пользоваться новостными функциями бота, добавьте новостигруппу или мемогруппу"
         return vk_group_api.send_message(user_info, TOKEN, message)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
     deleted_group_type = vk_response.split()[1]
-    if deleted_group_type == "мемогруппу":
+    if is_memes_group(deleted_group_type):
         users_groups = user_data.mems_groups.all()
-    elif deleted_group_type == "новостигруппу":
+    elif is_news_group(deleted_group_type):
         users_groups = user_data.news_groups.all()
+    else:
+        message = "Не понял тип группы"
+        return vk_group_api.send_message(user_info, TOKEN, message)
     if not users_groups:
         message = "Список групп пуст"
         return vk_group_api.send_message(user_info, TOKEN, message)
@@ -64,6 +67,9 @@ def post_handler(user_info, TOKEN, vk_response):
         users_groups = user_data.mems_groups.all()
     elif post_type == "новости":
         users_groups = user_data.news_groups.all()
+    else:
+        message = "Не понял тип поста"
+        return vk_group_api.send_message(user_info, TOKEN, message)
     if not users_groups:
         message = "Список групп пуст"
         return vk_group_api.send_message(user_info, TOKEN, message)
@@ -84,6 +90,9 @@ def post_from_handler(user_info, TOKEN, vk_response):
         users_groups = user_data.mems_groups.all()
     elif post_desirable_type == "новости":
         users_groups = user_data.news_groups.all()
+    else:
+        message = "Не понял тип поста"
+        return vk_group_api.send_message(user_info, TOKEN, message)
     if not users_groups:
         message = "Список групп пуст"
         return vk_group_api.send_message(user_info, TOKEN, message)
@@ -104,6 +113,9 @@ def post_list_of_groups_handler(user_info, TOKEN, vk_response):
         users_groups = user_data.mems_groups.all()
     elif desirable_list_group == "новостигрупп":
         users_groups = user_data.news_groups.all()
+    else:
+        message = "Не понял тип поста"
+        return vk_group_api.send_message(user_info, TOKEN, message)
     if not users_groups:
         message = "Список групп пуст"
         return vk_group_api.send_message(user_info, TOKEN, message)
@@ -137,5 +149,6 @@ def default_handler(user_info, TOKEN, vk_response):
 def is_memes_group(group_type):
     return 'мемогруп' in group_type
 
+
 def is_news_group(group_type):
-    return 'новостигрупп' in group_type
+    return 'новостигруп' in group_type
