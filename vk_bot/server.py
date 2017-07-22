@@ -21,8 +21,8 @@ def webhook():
         vk_response = data['object']['body'].capitalize()
         message_processors = [
             (
-                message_validators.is_add_mem_group_command,
-                message_handlers.add_mem_group_handler
+                message_validators.is_add_group_command,
+                message_handlers.add_group_handler
             ),
             (
                 message_validators.is_delete_mem_group_command,
