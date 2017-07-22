@@ -1,5 +1,5 @@
 def is_add_group_command(messaging_event):
-    validators = ['Добавь мемогруппу']
+    validators = ['Добавь мемогруппу', 'Добавь новостигруппу']
     return validate(validators, messaging_event)
 
 
@@ -24,7 +24,7 @@ def is_post_list_of_memes_groups_command(messaging_event):
 
 
 def is_add_news_group_command(messaging_event):
-    validators = ['Добавь новостигруппу']
+    validators = ['Добавь новостьгруппу']
     return validate(validators, messaging_event)
 
 
