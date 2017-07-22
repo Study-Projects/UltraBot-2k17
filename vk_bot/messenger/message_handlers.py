@@ -95,7 +95,7 @@ def post_from_handler(user_info, TOKEN, vk_response):
             vk_group_api.send_message(user_info, TOKEN, post_text, post_attachments)
 
 
-def post_list_of_memes_groups_handler(user_info, TOKEN, vk_response):
+def post_list_of_groups_handler(user_info, TOKEN, vk_response):
     desirable_list_group = vk_response.split()[2]
     user_data = User.query.filter_by(user_id=str(user_info)).first()
     if user_data is None:
