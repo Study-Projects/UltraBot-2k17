@@ -1,4 +1,4 @@
-def is_add_mem_group_command(messaging_event):
+def is_add_group_command(messaging_event):
     validators = ['Добавь мемогруппу']
     return validate(validators, messaging_event)
 
