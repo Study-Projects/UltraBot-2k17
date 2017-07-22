@@ -23,11 +23,6 @@ def is_post_list_of_groups_command(messaging_event):
     return validate(validators, messaging_event)
 
 
-def is_post_list_of_news_groups_command(messaging_event):                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
-    validators = ['Пришли список новостmгрупп']
-    return validate(validators, messaging_event)
-
-
 def is_parse_possible_photos_command(messaging_event):
     validators = ['Найди фото']
     return validate(validators, messaging_event)
