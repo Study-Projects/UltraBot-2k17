@@ -41,10 +41,6 @@ def webhook():
                 message_handlers.post_list_of_groups_handler
             ),
             (
-                message_validators.is_post_list_of_news_groups_command,
-                message_handlers.post_list_of_news_groups_handler                                                                                                                                                                                                                                                         
-            ),
-            (
                 message_validators.is_parse_possible_photos_command,
                 message_handlers.parse_possible_photos_handler
             ),
