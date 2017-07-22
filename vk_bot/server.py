@@ -33,16 +33,12 @@ def webhook():
                 message_handlers.post_handler
             ),
             (
-                message_validators.is_post_memes_from_command,
-                message_handlers.post_memes_from_handler
+                message_validators.is_post_from_command,
+                message_handlers.post_from_handler
             ),
             (
                 message_validators.is_post_list_of_memes_groups_command,
                 message_handlers.post_list_of_memes_groups_handler
-            ),
-            (
-                message_validators.is_post_news_from_command,
-                message_handlers.post_news_from_handler
             ),
             (
                 message_validators.is_post_list_of_news_groups_command,
