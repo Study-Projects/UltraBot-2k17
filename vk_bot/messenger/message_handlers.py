@@ -3,16 +3,22 @@ from vk_bot.server import db
 from vk_bot.models.groups import User, Mems_group, News_group
 from config import WEATHER_KEY
 
-def add_mem_group_handler(user_info, TOKEN, vk_response):
+def add_group_handler(user_info, TOKEN, vk_response):
     user_id = User.query.filter_by(user_id=str(user_info)).first()
     if user_id is None:
         user_id = User(user_id=str(user_info))
         db.session.add(user_id)
+    group_type = vk_response.split()[1]
     group_name = vk_response.split()[2]
     group_id = vk_response.split()[3]
-    mems_group = Mems_group(group_name=group_name, group_id=group_id, owner=user_id)
-    db.session.add(mems_group)
-    db.session.commit()
+    if group_type == "мемогруппу":
+        mems_group = Mems_group(group_name=group_name, group_id=group_id, owner=user_id)
+        db.session.add(mems_group)
+        db.session.commit()
+    elif group_type == "новостигруппу":
+        news_group = News_group(group_name=group_name, group_id=group_id, owner=user_id)
+        db.session.add(news_group)
+        db.session.commit()
     message = "Группа добавлена" 
     return vk_group_api.send_message(user_info, TOKEN, message) 
 
