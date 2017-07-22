@@ -42,7 +42,7 @@ def webhook():
             ),
             (
                 message_validators.is_add_news_group_command,
-                message_handlers.add_mem_group_handler
+                message_handlers.add_news_group_handler
             ),
             (
                 message_validators.is_delete_news_group_command,
