@@ -31,7 +31,7 @@ def add_group_handler(user_info, TOKEN, vk_response):
     return vk_group_api.send_message(user_info, TOKEN, message) 
 
 
-def delete_mem_group_handler(user_info, TOKEN, vk_response):
+def delete_group_handler(user_info, TOKEN, vk_response):
     deleted_group = vk_response.split()[2]
     user_data = User.query.filter_by(user_id=str(user_info)).first()
     if user_data is None:
