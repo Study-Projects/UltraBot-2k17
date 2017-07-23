@@ -21,7 +21,7 @@ def parse_posts(group_id):
                 attachments_objects.append(attachment_object)
         post_with_attachment = (text, attachments_objects)
         posts_to_send.append(post_with_attachment)
-    return
+    return posts_to_send
 
 
 def make_attachment_object(attachment):
