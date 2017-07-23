@@ -7,10 +7,10 @@ from vk_bot.messenger import message_handlers
 
 
 class MessageHandlersTestCase(TestCase):
-	def setUp(self):
-		self.user_info = "USER_ID"
-		self.CONFIRMATION_TOKEN = '1'
-		self.TOKEN = '1'
+    def setUp(self):
+        self.user_info = "USER_ID"
+	self.CONFIRMATION_TOKEN = '1'
+	self.TOKEN = '1'
 		
 		
 	def generate_vk_messaging_event(self, message_type, body):
