@@ -9,7 +9,7 @@ def send_message(user_id, token, message, attachments=None):
         vk_group_api.messages.send(access_token=token, user_id=str(user_id), message=message)
     else:
         attachments = ','.join(attachments)
-        vk_group_api.messages.send(access_token=token, user_id=str(user_id), message=message, attachments=attachments)
+        vk_group_api.messages.send(access_token=token, user_id=str(user_id), message=message, attachment=attachments)
 
 def get_user_info(user_letter_id):
     user_info = vk_group_api.users.get(user_ids=user_letter_id)

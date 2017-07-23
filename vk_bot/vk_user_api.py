@@ -17,6 +17,8 @@ def parse_posts(group_id):
         attachments = posts[1]['attachments']
         for attachment in attachments:
             attachment_type = attachment['type']
+            if attachment_type == 'link':
+                continue
             id_name = attachment_type[0] + 'id'
             attachment_id = attachment[attachment_type][id_name]
             attachment_owner_id = attachment[attachment_type]['owner_id']
