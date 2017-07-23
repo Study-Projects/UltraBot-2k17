@@ -11,7 +11,7 @@ def parse_posts(group_id):
         return [posts['error'], None]
     posts_to_send = []
     for post in posts:
-        text = post.get('text', 'None')
+        text = post['text']
         attachments_objects = []
         if 'attachments' in post:
             attachments = post['attachments']
