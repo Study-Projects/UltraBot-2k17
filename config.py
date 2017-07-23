@@ -1,9 +1,9 @@
 import os
 
-TOKEN = os.environ['TOKEN']
-CONFIRMATION_TOKEN = os.environ['CONFIRMATION_TOKEN']
-APP_ID = os.environ['APP_ID']
-LOGIN = os.environ['LOGIN']
-PASSWORD = os.environ['PASSWORD']
-BOT_GROUP_ID = os.environ['BOT_GROUP_ID']
-WEATHER_KEY = os.environ['WEATHER_KEY']
+TOKEN = os.environ.get('TOKEN')
+CONFIRMATION_TOKEN = os.environ.get('CONFIRMATION_TOKEN')
+APP_ID = os.environ.get('APP_ID')
+LOGIN = os.environ.get('LOGIN')
+PASSWORD = os.environ.get('PASSWORD')
+BOT_GROUP_ID = os.environ.get('BOT_GROUP_ID')
+WEATHER_KEY = os.environ.get('WEATHER_KEY')
