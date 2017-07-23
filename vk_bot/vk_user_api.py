@@ -9,6 +9,7 @@ def parse_posts(group_id):
     posts = vk_user_api.wall.get(owner_id=group_id, count=3)
     if 'error' in posts:
         return [posts['error'], None]
+    posts.remove(posts[0]) # removing request number, now "posts" really contain only posts.
     posts_to_send = []
     for post in posts:
         text = post['text']
