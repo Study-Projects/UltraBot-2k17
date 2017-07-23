@@ -19,9 +19,9 @@ class MessageHandlersTestCase(TestCase):
             'object': {
                 'user_id': self.user_info,
                 'body': body
-			}
-		}
-		return vk_messaging_event
+	    }
+	}
+	return vk_messaging_event
 
 
     def generate_message_new(self):
