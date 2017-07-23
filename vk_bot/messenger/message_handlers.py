@@ -76,8 +76,7 @@ def post_handler(user_info, TOKEN, vk_response):
     for users_group in users_groups:
         group_number_id = vk_group_api.get_group_info(str(users_group.group_id)[15:])
         posts_to_send = vk_user_api.parse_posts(group_number_id)
-        for post in posts_to_send:
-            post_text, post_attachments = post
+        for post_text, post_attachments in posts_to_send:
             vk_group_api.send_message(user_info, TOKEN, post_text, post_attachments)
 
 
@@ -102,8 +101,7 @@ def post_from_handler(user_info, TOKEN, vk_response):
         if users_group.group_name == post_desirable_group:
             group_number_id = vk_group_api.get_group_info(str(users_group.group_id)[15:])
             posts_to_send = vk_user_api.parse_posts(group_number_id)
-            for post in posts_to_send:
-                post_text, post_attachments = post
+            for post_text, post_attachments in posts_to_send:
                 vk_group_api.send_message(user_info, TOKEN, post_text, post_attachments)
 
 
