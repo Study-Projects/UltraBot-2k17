@@ -13,14 +13,14 @@ from vk_bot.messenger import message_validators,message_handlers
 
 @app.route('/', methods=['GET', 'POST'])
 def webhook():
-    data = json.loads(request.data)
+    vk_messaging_event = json.loads(request.data)
     TOKEN = app.config['TOKEN']
     CONFIRMATION_TOKEN = app.config['CONFIRMATION_TOKEN']
-    if data['type'] == 'confirmation':
+    if vk_messaging_event['type'] == 'confirmation':
         return CONFIRMATION_TOKEN
-    elif data['type'] == 'message_new':
-        user_info = data['object']['user_id']
-        vk_response = data['object']['body'].capitalize()
+    elif vk_messaging_event['type'] == 'message_new':
+        user_info = vk_messaging_event['object']['user_id']
+        vk_response = vk_messaging_event['object']['body'].capitalize()
         message_processors = [
             (
                 message_validators.is_add_group_command,
