@@ -8,9 +8,9 @@ from vk_bot.messenger import message_handlers
 
 class MessageHandlersTestCase(TestCase):
     def setUp(self):
-    self.user_info = "USER_ID"
-	self.CONFIRMATION_TOKEN = '1'
-	self.TOKEN = '1'
+        self.user_info = "USER_ID"
+        self.CONFIRMATION_TOKEN = '1'
+        self.TOKEN = '1'
 		
 		
     def generate_vk_messaging_event(self, message_type, body):
@@ -19,9 +19,9 @@ class MessageHandlersTestCase(TestCase):
             'object': {
                 'user_id': self.user_info,
                 'body': body
-	    }
-	}
-	return vk_messaging_event
+            }
+        }
+        return vk_messaging_event
 
 
     def generate_message_new(self):
