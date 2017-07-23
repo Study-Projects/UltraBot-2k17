@@ -6,27 +6,34 @@ vk_user_api = vk.API(session)
 
 def parse_posts(group_id):
     group_id = -int(group_id)
-    posts = vk_user_api.wall.get(owner_id=group_id)
+    posts = vk_user_api.wall.get(owner_id=group_id, count=3)
     if 'error' in posts:
+        return [posts['error'], None]
+    posts_to_send = []
+    for post in posts:
+        text = post.get('text', 'None')
+        attachments_objects = []
+        if 'attachments' in post:
+            attachments = post['attachments']
+            for attachment in attachments:
+                attachment_object = make_attachment_object(attachment)
+                attachments_objects.append(attachment_object)
+        post_with_attachment = (text, attachments_objects)
+        posts_to_send.append(post_with_attachment)
+    return
+
+
+def make_attachment_object(attachment):
+    attachment_type = attachment['type']
+    if attachment_type == 'link':
         return None
-    text = posts[1]['text']
-    if text is None or text is '':
-        text = 'None'
-    attachments_objects = []
-    if 'attachments' in posts[1]:
-        attachments = posts[1]['attachments']
-        for attachment in attachments:
-            attachment_type = attachment['type']
-            if attachment_type == 'link':
-                continue
-            id_name = attachment_type[0] + 'id'
-            attachment_id = attachment[attachment_type][id_name]
-            attachment_owner_id = attachment[attachment_type]['owner_id']
-            if 'access_key' in attachment[attachment_type]:
-                attachment_access_key = attachment[attachment_type]['access_key']
-                attachments_object = '%s%s_%s_%s' % (
-                attachment_type, attachment_owner_id, attachment_id, attachment_access_key)
-            else:
-                attachments_object = '%s%s_%s' % (attachment_type, attachment_owner_id, attachment_id)
-            attachments_objects.append(attachments_object)
-    return text, attachments_objects
+    id_name = attachment_type[0] + 'id'
+    attachment_id = attachment[attachment_type][id_name]
+    attachment_owner_id = attachment[attachment_type]['owner_id']
+    if 'access_key' in attachment[attachment_type]:
+        attachment_access_key = attachment[attachment_type]['access_key']
+        attachments_object = '%s%s_%s_%s' % (
+            attachment_type, attachment_owner_id, attachment_id, attachment_access_key)
+    else:
+        attachments_object = '%s%s_%s' % (attachment_type, attachment_owner_id, attachment_id)
+    return attachments_object
