@@ -26,12 +26,11 @@ class MessageHandlersTestCase(TestCase):
 
 	def generate_message_new(self):
 		message_type = 'message_new'
-		body = 'Add some to db'
+		body = 'Make some message action'
 		return self.generate_vk_messaging_event(message_type, body)
 
 
-	def generate_simple_message(self):
-		message = 'Не понял тип группы'
+	def generate_simple_message(self, message):
 		return message
 
 
@@ -42,7 +41,7 @@ class MessageHandlersTestCase(TestCase):
 		vk_response = vk_messaging_event['object']['body']
 		user_info = vk_messaging_event['object']['user_id']
 		user_id = MagicMock(user_info)
-		message = self.generate_simple_message()
+		message = self.generate_simple_message(message="Не понял тип группы")
 		message_handlers.add_group_handler(user_info, self.TOKEN, vk_response)
 		send_message_mock.assert_called_once_with(user_info, self.TOKEN, message)
  
