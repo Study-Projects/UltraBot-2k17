@@ -11,7 +11,7 @@ class MessageHandlersTestCase(TestCase):
 		self.user_info = "USER_ID"
 		self.CONFIRMATION_TOKEN = '1'
 		self.TOKEN = '1'
-		server.app.config['COMFIRMATION_TOKEN'] = self.CONFIRMATION_TOKEN
+		server.app.config['CONFIRMATION_TOKEN'] = self.CONFIRMATION_TOKEN
 		server.app.config['TOKEN'] = self.TOKEN
 		
 
@@ -34,6 +34,5 @@ class MessageHandlersTestCase(TestCase):
 		return self.generate_vk_messaging_event
 
 
-	@patch('vk_bot.messenger.message_handlers.vk_group_api.send_message')	
 	def test_add_group_handler(self):
-		pass
+		self.assertEqual(2,2)
