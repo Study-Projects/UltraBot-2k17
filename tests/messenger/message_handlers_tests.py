@@ -11,18 +11,14 @@ class MessageHandlersTestCase(TestCase):
 		self.user_info = "USER_ID"
 		self.CONFIRMATION_TOKEN = '1'
 		self.TOKEN = '1'
-		server.app.config['CONFIRMATION_TOKEN'] = self.CONFIRMATION_TOKEN
-		server.app.config['TOKEN'] = self.TOKEN
 		
-
-
-
-	def generate_vk_messaging_event(self, message_type, message):
+		
+	def generate_vk_messaging_event(self, message_type, body):
 		vk_messaging_event = {
 			'type': message_type,
 		    'object': {
 				'user_id': self.user_info,
-				'body': message
+				'body': body
 			}
 		}
 		return vk_messaging_event
@@ -30,9 +26,23 @@ class MessageHandlersTestCase(TestCase):
 
 	def generate_message_new(self):
 		message_type = 'message_new'
-		message = 'Doesn\'t matter'
-		return self.generate_vk_messaging_event
+		body = 'Add some to db'
+		return self.generate_vk_messaging_event(message_type, body)
 
 
-	def test_add_group_handler(self):
-		self.assertEqual(2,2)
+	def generate_simple_message(self):
+		message = 'Не понял тип группы'
+		return message
+
+
+	@patch('vk_bot.messenger.message_handlers.vk_group_api.send_message')
+	@patch('vk_bot.messenger.message_handlers.User')
+	def test_add_group_handler(self, user, send_message_mock):
+		vk_messaging_event = self.generate_message_new()
+		vk_response = vk_messaging_event['object']['body']
+		user_info = vk_messaging_event['object']['user_id']
+		user_id = MagicMock(user_info)
+		message = self.generate_simple_message()
+		message_handlers.add_group_handler(user_info, self.TOKEN, vk_response)
+		send_message_mock.assert_called_once_with(user_info, self.TOKEN, message)
+ 
