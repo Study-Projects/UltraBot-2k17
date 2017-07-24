@@ -4,6 +4,8 @@
 
 Little summer project from 2 Python learners. This is a chatbot for [vk.com](https://vk.com) with Russian interface. It could send you weather, news and memes. You can try it [here](https://vk.com/im?sel=-149540554).    
 
+![bot-interface](https://user-images.githubusercontent.com/25745587/28548648-d01c2fac-70dd-11e7-93cb-4b046ad1f9e8.png)
+
 ### List of commands
 ```
 Добавь (мемо/новости)группу <название группы> <ссылка>
