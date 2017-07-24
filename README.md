@@ -2,10 +2,7 @@
 
 [![Build Status](https://travis-ci.org/Study-Projects/UltraBot-2k17.svg?branch=master)](https://travis-ci.org/Study-Projects/UltraBot-2k17)
 
-Little summer project from 2 Python learners.
-This is a chatbot for [vk.com](https://vk.com) with Russian interface.
-It could send you weather, news and memes.    
-You can try it [here](https://vk.com/im?sel=-149540554).    
+Little summer project from 2 Python learners.This is a chatbot for [vk.com](https://vk.com) with Russian interface. It could send you weather, news and memes. You can try it [here](https://vk.com/im?sel=-149540554).    
 List of commands
 ```
 Добавь (мемо/новости)группу <название группы> <ссылка>
