@@ -44,7 +44,6 @@ class MessageHandlersTestCase(TestCase):
         return message
 
 
-    
     @patch('vk_bot.messenger.message_handlers.is_memes_group')
     @patch('vk_bot.messenger.message_handlers.vk_group_api.send_message')
     def test_add_group_handler(self, send_message_mock, is_memes_group_mock):
@@ -150,14 +149,3 @@ class MessageHandlersTestCase(TestCase):
         fetch_weather_mock.assert_called_once_with(self.WEATHER_KEY, city)
         message_handlers.post_weather_handler(user_info, self.TOKEN, vk_response)
         send_message_mock.assert_called_once_with(user_info, self.TOKEN, weather_info)
-
-
-
-
-
-
-
-
-
-                
-
