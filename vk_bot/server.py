@@ -1,11 +1,11 @@
 from flask import Flask,request,json
 from flask_sqlalchemy import SQLAlchemy
 import os
-from config import CONFIRMATION_TOKEN, TOKEN
 from vk_bot import vk_group_api
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+app.config.from_object('config')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 
@@ -13,12 +13,14 @@ from vk_bot.messenger import message_validators,message_handlers
 
 @app.route('/', methods=['GET', 'POST'])
 def webhook():
-    data = json.loads(request.data)
-    if data['type'] == 'confirmation':
+    vk_messaging_event = json.loads(request.data)
+    TOKEN = app.config['TOKEN']
+    CONFIRMATION_TOKEN = app.config['CONFIRMATION_TOKEN']
+    if vk_messaging_event['type'] == 'confirmation':
         return CONFIRMATION_TOKEN
-    elif data['type'] == 'message_new':
-        user_info = data['object']['user_id']
-        vk_response = data['object']['body'].capitalize()
+    elif vk_messaging_event['type'] == 'message_new':
+        user_info = vk_messaging_event['object']['user_id']
+        vk_response = vk_messaging_event['object']['body'].capitalize()
         message_processors = [
             (
                 message_validators.is_add_group_command,

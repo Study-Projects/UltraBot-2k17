@@ -1,10 +1,14 @@
 # UltraBot-2k17
+
+[![Build Status](https://travis-ci.org/Study-Projects/UltraBot-2k17.svg?branch=master)](https://travis-ci.org/Study-Projects/UltraBot-2k17)
+
 Little summer project from 2 python learners.
 This is a little chatbot for vk.com with russian interface.
 It could send you weather, news and memes.    
 All funcionality you could see in menu [here](https://vk.com/im?sel=-149540554) or typing "Меню" or "Помощь".    
 To get some memes or news you must add group into our's bot memory, using commands from menu.     
 If you need weather, please, type your town on eng. 
+
 ## Getting Started
 
 For download code on your local machine use:
@@ -27,19 +31,25 @@ Also you can create new app
 $ heroku create name-of-your-app
 ```
 
+For initial deploy and making some changes on heroku, you should commit it on your local machine and push that on heroku:
+```
+$ git push heroku master
+```
+
 Create database on heroku
 ```
 $ heroku addons:add heroku-postgresql:hobby-dev
 ```
 
-For initial deploy and making some changes on heroku, you should commit it on your local machine and push that on heroku:
-
-```
-$ git push heroku master
-```
 Create tables of your database
 ```
 $ heroku run python db_create.py
+```
+
+## Running the tests
+From root directory
+```
+$ python3 -m pytest tests
 ```
 
 ## License

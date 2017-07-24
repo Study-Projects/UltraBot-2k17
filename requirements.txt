@@ -1,4 +1,6 @@
 Babel
+coverage
+coveralls
 Flask
 Flask-Babel
 Flask-Login
@@ -8,6 +10,9 @@ Flask-SQLAlchemy
 Flask-WTF
 Jinja2
 psycopg2
+py
+pytest
+pytest-cov
 SQLAlchemy
 Tempita
 WTForms
