@@ -38,6 +38,12 @@ Create tables of your database
 $ heroku run python db_create.py
 ```
 
+## Running the tests
+From root directory
+```
+$ python3 -m pytest tests
+```
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
