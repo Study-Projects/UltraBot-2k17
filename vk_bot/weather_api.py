@@ -1,10 +1,11 @@
 import urllib.request
+import json
 
 
 def fetch_weather(weather_key, city):
     url = 'https://api.apixu.com/v1/current.json?key=%s&q=%s' % (weather_key, city)
     site = urllib.request.urlopen(url)
-    weather = site.read()
+    weather = json.loads(site.read().decode("utf-8"))
     current_weather = weather["current"]
     last_updated = current_weather["last_updated"]
     temp = current_weather["temp_c"]
