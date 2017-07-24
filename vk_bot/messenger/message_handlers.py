@@ -155,7 +155,7 @@ def help_handler(user_info, TOKEN, vk_response):
     Пришли свежие (мемы/новости)
     Пришли (мемы/новости) из <название группы>
     Пришли список (мемо/новости)групп
-    Погода <город>"""
+    Погода <city(EN)>"""
     return vk_group_api.send_message(user_info, TOKEN, message)
 
 
