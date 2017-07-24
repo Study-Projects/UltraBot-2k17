@@ -9,5 +9,6 @@ install:
   - pip3 install coveralls
   - pip3 install prospector
 script: 
-  - python3 -m pytest tests --cov vk_bot
+  - python3 -m pytest --cov vk_bot
+
   
