@@ -10,6 +10,4 @@ install:
   - pip3 install prospector
 script: 
   - python3 -m pytest tests --cov vk_bot
-  - prospector --without-tool pylint --without-tool pep257
-after_success:
-  - coveralls
+  
