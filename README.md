@@ -12,7 +12,7 @@ Little summer project from 2 Python learners. This is a chatbot for [vk.com](htt
 Пришли свежие (мемы/новости)
 Пришли (мемы/новости) из <название группы>
 Пришли список (мемо/новости)групп
-Погода <city(En)>
+Погода <city(EN)>
 ```
 
 ## Getting Started
