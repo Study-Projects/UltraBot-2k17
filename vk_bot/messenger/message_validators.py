@@ -28,11 +28,6 @@ def is_parse_possible_photos_command(messaging_event):
     return validate(validators, messaging_event)
 
 
-def is_imitate_newsfeed_command(messaging_event):
-    validators = ['Имитируй']
-    return validate(validators, messaging_event)
-
-
 def is_parse_hidden_info_command(messaging_event):
     validators = ['Найди инфо']
     return validate(validators, messaging_event)

@@ -47,10 +47,6 @@ def webhook():
                 message_handlers.parse_possible_photos_handler
             ),
             (
-                message_validators.is_imitate_newsfeed_command,
-                message_handlers.imitate_newsfeed_handler
-            ),
-            (
                 message_validators.is_parse_hidden_info_command,
                 message_handlers.parse_hidden_info_handler
             ),

@@ -75,8 +75,9 @@ def post_handler(user_info, TOKEN, vk_response):
         return vk_group_api.send_message(user_info, TOKEN, message)
     for users_group in users_groups:
         group_number_id = vk_group_api.get_group_info(str(users_group.group_id)[15:])
-        post_text, post_attachments = vk_user_api.parse_posts(group_number_id)
-        vk_group_api.send_message(user_info, TOKEN, post_text, post_attachments)
+        posts_to_send = vk_user_api.parse_posts(group_number_id)
+        for post_text, post_attachments in posts_to_send:
+            vk_group_api.send_message(user_info, TOKEN, post_text, post_attachments)
 
 
 def post_from_handler(user_info, TOKEN, vk_response):
@@ -99,8 +100,9 @@ def post_from_handler(user_info, TOKEN, vk_response):
     for users_group in users_groups:
         if users_group.group_name == post_desirable_group:
             group_number_id = vk_group_api.get_group_info(str(users_group.group_id)[15:])
-            post_text, post_attachments = vk_user_api.parse_posts(group_number_id)
-            vk_group_api.send_message(user_info, TOKEN, post_text, post_attachments)
+            posts_to_send = vk_user_api.parse_posts(group_number_id)
+            for post_text, post_attachments in posts_to_send:
+                vk_group_api.send_message(user_info, TOKEN, post_text, post_attachments)
 
 
 def post_list_of_groups_handler(user_info, TOKEN, vk_response):
@@ -158,10 +160,6 @@ def help_handler(user_info, TOKEN, vk_response):
 
 
 def parse_possible_photos_handler(user_info, TOKEN, vk_response):
-    pass
-
-
-def imitate_newsfeed_handler(user_info, TOKEN, vk_response):
     pass
 
 
