@@ -18,7 +18,8 @@ def parse_posts(group_id):
             attachments = post['attachments']
             for attachment in attachments:
                 attachment_object = make_attachment_object(attachment)
-                attachments_objects.append(attachment_object)
+                if attachment_object:
+                    attachments_objects.append(attachment_object)
         post_with_attachment = (text, attachments_objects)
         posts_to_send.append(post_with_attachment)
     return posts_to_send
