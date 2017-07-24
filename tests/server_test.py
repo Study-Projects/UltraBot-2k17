@@ -55,7 +55,6 @@ class MessageHandlersTestCase(TestCase):
     	self.assertEqual(number_of_calls, 1)
 
 
-
     @patch('vk_bot.server.message_handlers')
     def test_delet_group_handler_gets_called(self, message_handlers_mock):
     	message_handlers_mock.add_group_handler = MagicMock()
@@ -108,4 +107,3 @@ class MessageHandlersTestCase(TestCase):
         self.app.post('/', data=json.dumps(vk_messaging_event))
         number_of_calls = message_handlers_mock.post_weather_handler.call_count
         self.assertEqual(number_of_calls, 1)              		    
-    	
