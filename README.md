@@ -1,7 +1,13 @@
 # UltraBot-2k17
-[![Build Status](https://travis-ci.org/Study-Projects/UltraBot-2k17.svg?branch=Testing)](https://travis-ci.org/Study-Projects/UltraBot-2k17)
 
-Some little project on summer from two shit-progers
+[![Build Status](https://travis-ci.org/Study-Projects/UltraBot-2k17.svg?branch=master)](https://travis-ci.org/Study-Projects/UltraBot-2k17)
+
+Little summer project from 2 python learners.
+This is a little chatbot for vk.com with russian interface.
+It could send you weather, news and memes.    
+All funcionality you could see in menu [here](https://vk.com/im?sel=-149540554) or typing "Меню" or "Помощь".    
+To get some memes or news you must add group into our's bot memory, using commands from menu.     
+If you need weather, please, type your town on eng. 
 
 ## Getting Started
 
