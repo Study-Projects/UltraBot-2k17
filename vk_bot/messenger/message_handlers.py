@@ -163,10 +163,6 @@ def parse_possible_photos_handler(user_info, TOKEN, vk_response):
     pass
 
 
-def imitate_newsfeed_handler(user_info, TOKEN, vk_response):
-    pass
-
-
 def parse_hidden_info_handler(user_info, TOKEN, vk_response):
     pass
 
