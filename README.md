@@ -2,12 +2,20 @@
 
 [![Build Status](https://travis-ci.org/Study-Projects/UltraBot-2k17.svg?branch=master)](https://travis-ci.org/Study-Projects/UltraBot-2k17)
 
-Little summer project from 2 python learners.
-This is a little chatbot for vk.com with russian interface.
+Little summer project from 2 Python learners.
+This is a chatbot for [vk.com](https://vk.com) with Russian interface.
 It could send you weather, news and memes.    
-All funcionality you could see in menu [here](https://vk.com/im?sel=-149540554) or typing "Меню" or "Помощь".    
-To get some memes or news you must add group into our's bot memory, using commands from menu.     
-If you need weather, please, type your town on eng. 
+You can try it [here](https://vk.com/im?sel=-149540554).    
+List of commands
+```
+Добавь (мемо/новости)группу <название группы> <ссылка>
+Удали (мемо/новости)группу <название группы>
+Удали все (мемо/новости)группы
+Пришли свежие (мемы/новости)
+Пришли (мемы/новости) из <название группы>
+Пришли список (мемо/новости)групп
+Погода <город>
+```
 
 ## Getting Started
 
