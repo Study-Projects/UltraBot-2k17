@@ -1,4 +1,7 @@
 # UltraBot-2k17
+[![Build Status]
+(https://travis-ci.org/Study-Projects/UltraBot-2k17.svg?branch=Testing)](https://travis-ci.org/Study-Projects/UltraBot-2k17)
+
 Some little project on summer from two shit-progers
 
 ## Getting Started
