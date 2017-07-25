@@ -2,10 +2,13 @@
 
 [![Build Status](https://travis-ci.org/Study-Projects/UltraBot-2k17.svg?branch=master)](https://travis-ci.org/Study-Projects/UltraBot-2k17)
 [![Coverage Status](https://coveralls.io/repos/github/Study-Projects/UltraBot-2k17/badge.svg?branch=master)](https://coveralls.io/github/Study-Projects/UltraBot-2k17?branch=master)
+[![Code Climate][code-climate-badge]][code-climate]
 [![License: MIT][license-badge]][license]
 
 [license-badge]: https://img.shields.io/badge/License-MIT-red.svg?branch=master
 [license]: https://opensource.org/licenses/MIT
+[coverage-badge]: https://coveralls.io/repos/github/github/Study-Projects/UltraBot-2k17/badge.svg?branch=master
+[coverage]: https://coveralls.io/github/Study-Projects/UltraBot-2k17
 
 Little summer project from 2 Python learners. This is a chatbot for [vk.com](https://vk.com) with Russian interface. It could send you weather, news and memes. You can try it [here](https://vk.com/im?sel=-149540554).    
 
