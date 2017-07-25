@@ -1,6 +1,7 @@
 # UltraBot-2k17
 
 [![Build Status](https://travis-ci.org/Study-Projects/UltraBot-2k17.svg?branch=master)](https://travis-ci.org/Study-Projects/UltraBot-2k17)
+[![Coverage Status](https://coveralls.io/repos/github/Study-Projects/UltraBot-2k17/badge.svg?branch=master)](https://coveralls.io/github/Study-Projects/UltraBot-2k17?branch=master)
 [![License: MIT][license-badge]][license]
 
 [license-badge]: https://img.shields.io/badge/License-MIT-red.svg?branch=master
