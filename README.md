@@ -1,10 +1,7 @@
 # UltraBot-2k17
 
 [![Build Status](https://travis-ci.org/Study-Projects/UltraBot-2k17.svg?branch=master)](https://travis-ci.org/Study-Projects/UltraBot-2k17)
-
-[![License: MIT][license-badge]][license]
-[license-badge]: https://img.shields.io/badge/License-MIT-yellow.svg?branch=master
-[license]: https://opensource.org/licenses/MIT
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?branch=master)
 
 Little summer project from 2 Python learners. This is a chatbot for [vk.com](https://vk.com) with Russian interface. It could send you weather, news and memes. You can try it [here](https://vk.com/im?sel=-149540554).    
 
