@@ -11,6 +11,6 @@ install:
 script: 
   - python3 -m pytest --cov vk_bot
 after_success:
-  coveralls
+  - coveralls
 
   
